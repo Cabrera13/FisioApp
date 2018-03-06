@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1089322828385",
+    "firebase_url": "https://fisioapp-75b70.firebaseio.com",
+    "project_id": "fisioapp-75b70",
+    "storage_bucket": "fisioapp-75b70.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089322828385:android:97c3927262d467d1",
+        "android_client_info": {
+          "package_name": "com.example.pep.fisioapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089322828385-69pud73r0a341908ufvo7v41leclabut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pep.fisioapp",
+            "certificate_hash": "0dee266c6f1b844f095b7150c12f736f8a93f880"
+          }
+        },
+        {
+          "client_id": "1089322828385-52li2t5tcgl8q0ol2t5ei78a32jojn13.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDB2IJXtheA_6cvgXUj3fmecgX6g39c4u4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089322828385-52li2t5tcgl8q0ol2t5ei78a32jojn13.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
