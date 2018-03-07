@@ -7,6 +7,7 @@ package com.example.pep.fisioapp.Classes;
 public class ObjectPatients {
     String nom;
     String dni;
+
     public ObjectPatients(String dni, String nom) {
         this.nom = nom;
         this.dni = dni;

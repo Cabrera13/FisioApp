@@ -1,36 +1,22 @@
 package com.example.pep.fisioapp.Firebase;
 
-import android.support.annotation.NonNull;
-import android.util.Log;
-import android.widget.Toast;
-
 import com.example.pep.fisioapp.Classes.ObjectPatients;
-import com.example.pep.fisioapp.LoginScreen;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
-import java.util.concurrent.Executor;
-
-import static android.content.ContentValues.TAG;
-import static android.widget.Toast.*;
 
 /**
  * Created by Pep on 05/03/2018.
  */
 
-public class SglFb {
-    private static final SglFb ourInstance = new SglFb();
+public class SglClass {
+    private static final SglClass ourInstance = new SglClass();
     private ArrayList<ObjectPatients> list;
 
-    public static SglFb getInstance() {
+    public static SglClass getInstance() {
         return ourInstance;
     }
 
-    private SglFb() {
+    private SglClass() {
         this.list = new ArrayList<>();
         ObjectPatients one = new ObjectPatients("47791942n", "josep");
         ObjectPatients two = new ObjectPatients("52241414k", "pep");
@@ -45,4 +31,5 @@ public class SglFb {
     public void setList(ArrayList<ObjectPatients> list) {
         this.list = list;
     }
+
 }

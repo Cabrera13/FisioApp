@@ -1,6 +1,5 @@
 package com.example.pep.fisioapp;
 
-import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
@@ -12,7 +11,7 @@ import android.widget.Toolbar;
 
 import com.example.pep.fisioapp.Adapter.ElementAdapter;
 import com.example.pep.fisioapp.Classes.ObjectPatients;
-import com.example.pep.fisioapp.Firebase.SglFb;
+import com.example.pep.fisioapp.Firebase.SglClass;
 
 import java.util.ArrayList;
 
@@ -26,7 +25,7 @@ public class Patients extends AppCompatActivity {
         setContentView(R.layout.activity_patients);
         ListView list = findViewById(R.id.list);
 
-        final SglFb instance = SglFb.getInstance();
+        final SglClass instance = SglClass.getInstance();
         final ArrayList<ObjectPatients> arrayInstances = instance.getList();
 
         //elementAdapter

@@ -10,9 +10,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.pep.fisioapp.Firebase.SglFb;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -24,25 +24,31 @@ public class LoginScreen extends AppCompatActivity {
     Button buttonLogin;
     EditText mEditTextEmail;
     EditText mEditTextPassWord;
+    String password;
+    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_screen);
+        FirebaseApp.initializeApp(this);
+
 
 
         buttonLogin = findViewById(R.id.buttonLogin);
         mEditTextEmail = (EditText) findViewById(R.id.editMail);
         mEditTextPassWord = (EditText) findViewById(R.id.editText3);
 
-        final SglFb sgl = SglFb.getInstance();
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String username = mEditTextEmail.getText().toString() ;
-                final String password = mEditTextPassWord.getText().toString() ;
-                signIn(username, password);
+                username = mEditTextEmail.getText().toString();
+                password = mEditTextPassWord.getText().toString();
+                if (!username.equals(null)  && password != null) {
+                    signIn(username, password);
+                }
+
             }
         });
 
@@ -51,8 +57,11 @@ public class LoginScreen extends AppCompatActivity {
         final FirebaseAuth mAuth = FirebaseAuth.getInstance();
         mAuth.signInWithEmailAndPassword(mail, psw)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+
                     @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
+
+
+                        public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
@@ -77,4 +86,3 @@ public class LoginScreen extends AppCompatActivity {
                 });
     }
 }
-
