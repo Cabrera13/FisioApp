@@ -1,4 +1,4 @@
-package com.example.pep.fisioapp;
+package com.example.pep.fisioapp.Activities;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.pep.fisioapp.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -31,7 +33,7 @@ public class MainScreen extends AppCompatActivity {
 
         hour = findViewById(R.id.textHour);
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
-        SimpleDateFormat day = new SimpleDateFormat("dddd");
+        SimpleDateFormat day = new SimpleDateFormat("dd");
         SimpleDateFormat month = new SimpleDateFormat("MM");
         iconSdl = findViewById(R.id.imageView5);
         iconptt = findViewById(R.id.imageView3);
@@ -40,7 +42,6 @@ public class MainScreen extends AppCompatActivity {
 
         btncal = findViewById(R.id.btnSchedule);
         btnpatients = findViewById(R.id.btnPatients);
-
 
         Date d = new Date();
         String dayOfTheWeek = sdf.format(d);

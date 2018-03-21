@@ -1,12 +1,11 @@
-package com.example.pep.fisioapp;
+package com.example.pep.fisioapp.Activities;
 
-import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.content.Intent;
 import android.os.Handler;
-import android.view.Window;
-import android.view.WindowManager;
+
+import com.example.pep.fisioapp.R;
 
 
 public class SplashScreen extends AppCompatActivity {

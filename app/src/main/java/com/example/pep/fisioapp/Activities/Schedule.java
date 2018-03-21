@@ -1,20 +1,17 @@
-package com.example.pep.fisioapp;
+package com.example.pep.fisioapp.Activities;
 
 import android.Manifest;
 import android.accounts.AccountManager;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.provider.CalendarContract;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.text.method.ScrollingMovementMethod;
@@ -48,6 +45,7 @@ import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 
 public class Schedule extends Activity implements EasyPermissions.PermissionCallbacks {
+    
     GoogleAccountCredential mCredential;
     private TextView mOutputText;
     private Button mCallApiButton;
@@ -417,4 +415,5 @@ public class Schedule extends Activity implements EasyPermissions.PermissionCall
             }
         }
     }
+
 }
