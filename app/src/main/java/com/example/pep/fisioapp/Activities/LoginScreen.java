@@ -41,6 +41,7 @@ public class LoginScreen extends AppCompatActivity {
         mEditTextPassWord = (EditText) findViewById(R.id.editText3);
 
 
+
         buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

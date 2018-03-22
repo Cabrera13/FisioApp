@@ -15,26 +15,36 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Activities.SplashScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name=".Activities.LoginScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".Activities.MainScreen"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name=".Activities.Schedule"
-            android:theme="@style/Theme.AppCompat.NoActionBar"
-            />
-        <activity android:name=".Activities.Patients" />
-        <activity android:name=".Activities.FormPatients" />
-        <activity android:name=".Activities.ViewForm">
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
 
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".Activities.LoginScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".Activities.MainScreen"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
+
+        </activity>
+        <activity
+            android:name=".Activities.Schedule"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+        <activity android:name=".Activities.Patients"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+        <activity android:name=".Activities.FormPatients"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            />
+        <activity android:name=".Activities.ViewForm"
+            android:theme="@style/Theme.AppCompat.NoActionBar"
+            >
+
         </activity>
         <activity
             android:name=".Activities.Tasks"

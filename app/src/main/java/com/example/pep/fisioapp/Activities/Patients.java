@@ -5,10 +5,12 @@ import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.example.pep.fisioapp.Adapter.ElementAdapter;
@@ -30,6 +32,9 @@ public class Patients extends AppCompatActivity {
         setContentView(R.layout.activity_patients);
         list = findViewById(R.id.list);
 
+        TextView mTitle = findViewById(R.id.toolbar_title);
+        mTitle.setText("Patients");
+
         final SglClass instance = SglClass.getInstance();
         final ArrayList<ObjectPatients> arrayInstances = instance.getList();
         add = findViewById(R.id.buttonAdd);
@@ -45,7 +50,10 @@ public class Patients extends AppCompatActivity {
             public void onItemClick(AdapterView parent, View view, int position, long id) {
                 view.setSelected(true);
                 try {
+
                     Intent i = new Intent(Patients.this, ViewForm.class);
+                    Log.d("kkkkk", "onItemClick: "+ instance.getList().get(position).getDni());
+                    i.putExtra("dni", instance.getList().get(position).getDni());
                     startActivity(i);
                 }
                 catch (NullPointerException e){

@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.pep.fisioapp.Firebase.FirebaseCalls;
 import com.example.pep.fisioapp.R;
 
 import java.text.SimpleDateFormat;
@@ -31,6 +32,8 @@ public class MainScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_screen);
 
+        FirebaseCalls x = new FirebaseCalls();
+        x.getUserInf();
         hour = findViewById(R.id.textHour);
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
         SimpleDateFormat day = new SimpleDateFormat("dd");
@@ -49,7 +52,6 @@ public class MainScreen extends AppCompatActivity {
         String monthname = month.format(d);
         hour.setText(dayOfTheWeek +","+" "+daynumber+" of " + monthname);
 
-        Log.i("d", dayOfTheWeek);
         btncal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

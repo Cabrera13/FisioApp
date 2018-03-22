@@ -83,7 +83,7 @@ public class FormPatients extends AppCompatActivity {
                             antecedents.getText().toString());
                     patients = new ObjectPatients(DNI.getText().toString(), nom.getText().toString(), cognoms.getText().toString(), Integer.parseInt(edat.getText().toString()),
                             sexe.getSelectedItem().toString(), poblacio.getText().toString(), new ArrayList<ObjectForms>());
-                    patients.setForms(forms);
+                    patients.setFormsk(forms);
                     instancia.setList(patients);
 
                    FirebaseCalls x = new FirebaseCalls();

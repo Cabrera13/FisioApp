@@ -32,8 +32,8 @@ public class ElementAdapter extends ArrayAdapter<ObjectPatients> {
         TextView nom = convertView.findViewById(R.id.textViewNom);
         TextView dni = convertView.findViewById(R.id.textViewdni);
 
-        nom.setText("Nom:   "+instance.getNom());
-        dni.setText("Data:   " +instance.getDni());
+        nom.setText(instance.getNom());
+        dni.setText(instance.getDni());
 
         return convertView;
     }
