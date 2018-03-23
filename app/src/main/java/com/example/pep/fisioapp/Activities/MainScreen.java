@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.example.pep.fisioapp.Firebase.FirebaseCalls;
 import com.example.pep.fisioapp.R;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -36,8 +37,20 @@ public class MainScreen extends AppCompatActivity {
         x.getUserInf();
         hour = findViewById(R.id.textHour);
         SimpleDateFormat sdf = new SimpleDateFormat("EEEE");
-        SimpleDateFormat day = new SimpleDateFormat("dd");
+        SimpleDateFormat day = new SimpleDateFormat("d");
         SimpleDateFormat month = new SimpleDateFormat("MM");
+
+        SimpleDateFormat formatter = new SimpleDateFormat("EEEE, MMM dd");
+        String dateInString = "Friday, Jun 7";
+
+        Date date = null;
+        try {
+            date = formatter.parse(dateInString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+
         iconSdl = findViewById(R.id.imageView5);
         iconptt = findViewById(R.id.imageView3);
         iconSdl.bringToFront();
@@ -46,11 +59,8 @@ public class MainScreen extends AppCompatActivity {
         btncal = findViewById(R.id.btnSchedule);
         btnpatients = findViewById(R.id.btnPatients);
 
-        Date d = new Date();
-        String dayOfTheWeek = sdf.format(d);
-        String daynumber = day.format(d);
-        String monthname = month.format(d);
-        hour.setText(dayOfTheWeek +","+" "+daynumber+" of " + monthname);
+
+        hour.setText(formatter.format(date));
 
         btncal.setOnClickListener(new View.OnClickListener() {
             @Override

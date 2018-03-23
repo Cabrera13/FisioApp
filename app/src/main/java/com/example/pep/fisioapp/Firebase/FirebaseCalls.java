@@ -7,6 +7,7 @@ import android.support.annotation.RequiresApi;
 import android.util.Log;
 
 import com.example.pep.fisioapp.Activities.FormPatients;
+import com.example.pep.fisioapp.Classes.ObjectForms;
 import com.example.pep.fisioapp.Classes.ObjectPatients;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,7 +39,6 @@ public class FirebaseCalls {
             FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
             return mUser.getUid();
         }
-
         public void pushUser (ObjectPatients p, String dni){
             DatabaseReference mDatabase;
             mDatabase = FirebaseDatabase.getInstance().getReference();
@@ -47,6 +47,20 @@ public class FirebaseCalls {
             // x.push().child(token).child(dni).setValue(p);
             mDatabase.child("users").child(token).child(dni).setValue(p);
 
+        }
+        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+        public void pushForm (ArrayList<ObjectForms> p, String dni) {
+            DatabaseReference mDatabase;
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            String token = getToken();
+            instance.getPatientsByID(dni).getForms();
+            mDatabase.child("users").child(token).child(dni).child("forms").setValue(p);
+        }
+        public void modifyForm(ObjectPatients p, String dni) {
+            DatabaseReference mDatabase;
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            String token = getToken();
+            mDatabase.child("users").child(token).child(dni).setValue(p);
         }
 
     public void getUserInf () {

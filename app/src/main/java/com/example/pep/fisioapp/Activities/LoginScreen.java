@@ -71,6 +71,7 @@ public class LoginScreen extends AppCompatActivity {
                             Toast.makeText(LoginScreen.this, "Log In successfully",
                                     LENGTH_SHORT).show();
                             Intent i = new Intent(LoginScreen.this, MainScreen.class);
+                            finish();
                             startActivity(i);
 
 

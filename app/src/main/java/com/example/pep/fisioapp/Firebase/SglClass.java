@@ -56,6 +56,15 @@ public class SglClass {
         return list;
     }
 
+    public int getPositionPatientList (String dni) {
+        int pos = 0;
+        for (int x = 0; x < this.list.size(); x++){
+            if (this.list.get(x).getDni().equals(dni)){
+                pos = x;
+            }
+        }
+        return pos;
+    }
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public ArrayList<ObjectForms> getListForms(String id) {
         this.listForms.clear();
@@ -76,10 +85,11 @@ public class SglClass {
         Log.d("SIZE", "getListForms: " + listForms.size());
         return this.listForms;
     }
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     public ObjectPatients getPatientsByID (String id) {
         ObjectPatients p = null;
         for (int i = 0; i < list.size(); i++){
-            if (this.list.get(i).getDni() == id) {
+            if (Objects.equals(this.list.get(i).getDni(), id)) {
                 p = this.list.get(i);
             }
         }

@@ -1,41 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarPatients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
+        <ImageView
+            android:id="@+id/backbutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/backbutton2"
+
+            />
+
+        <TextView
+            android:id="@+id/texttitleforms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New form"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="19dp" />
+
+
+    </android.support.v7.widget.Toolbar>
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+android:layout_marginTop="80dp"
     android:fillViewport="true">
 
     <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:isScrollContainer="false"
         tools:context="com.example.pep.fisioapp.Firebase.getFirebaseData">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar_top"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:minHeight="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            >
 
-
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:text="Toolbar Title"
-                android:textColor="#ffffff"
-                android:textSize="18sp"
-                tools:layout_editor_absoluteX="153dp"
-                tools:layout_editor_absoluteY="19dp" />
-
-
-        </android.support.v7.widget.Toolbar>
         <TextView
             android:id="@+id/Titul"
             android:layout_width="wrap_content"
@@ -114,8 +131,8 @@
 
         <Spinner
             android:id="@+id/Sexe"
-            android:layout_width="102dp"
-            android:layout_height="11dp"
+            android:layout_width="119dp"
+            android:layout_height="57dp"
             android:layout_marginBottom="28dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
@@ -251,3 +268,4 @@
     </android.support.constraint.ConstraintLayout>
 
 </ScrollView>
+</android.support.constraint.ConstraintLayout>

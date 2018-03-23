@@ -7,7 +7,48 @@
     android:orientation="vertical"
 
     tools:context="com.example.pep.fisioapp.Activities.ViewForm">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarPatients"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:titleTextColor="@android:color/white">
 
+        <ImageView
+            android:id="@+id/backbutton"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/backbutton2"
+            />
+
+        <TextView
+            android:layout_marginLeft="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Forms"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="19dp" />
+
+        <ImageView
+            android:id="@+id/add"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="160dp"
+            android:src="@drawable/addthis"
+            />
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/ed"
+            />
+
+
+    </android.support.v7.widget.Toolbar>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="100dp">
@@ -23,13 +64,303 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context="com.example.pep.fisioapp.Fragment.FragmentViewBottom">
 
-        <fragment
-            android:id="@+id/fragment"
-            android:name="com.example.pep.fisioapp.Fragment.FragmentViewBottom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true">
+
+                <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    xmlns:tools="http://schemas.android.com/tools"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:isScrollContainer="true"
+                    tools:context="com.example.pep.fisioapp.Firebase.getFirebaseData">
+
+                    <TextView
+                        android:id="@+id/Titul"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:text="ANAMNESIS"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/Nom"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.501"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/Nom"
+                        android:layout_width="258dp"
+                        android:layout_height="44dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Nom*"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toTopOf="@+id/Cognoms"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.672"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/Cognoms"
+                        android:layout_width="257dp"
+                        android:layout_height="44dp"
+                        android:layout_marginBottom="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Cognoms*"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toTopOf="@+id/SexeT"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.666"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/DNI"
+                        android:layout_width="142dp"
+                        android:layout_height="41dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:hint="DNI*"
+                        android:inputType="text|number"
+                        app:layout_constraintBottom_toTopOf="@+id/poblacio"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.666"
+                        app:layout_constraintStart_toEndOf="@+id/SexeT"
+                        app:layout_constraintTop_toBottomOf="@+id/Cognoms"
+                        app:layout_constraintVertical_bias="0.565" />
+
+                    <EditText
+                        android:id="@+id/Edat"
+                        android:layout_width="88dp"
+                        android:layout_height="44dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginStart="28dp"
+                        android:layout_marginTop="8dp"
+                        android:ems="10"
+                        android:hint="Edat*"
+                        app:layout_constraintBottom_toTopOf="@+id/poblacio"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Cognoms"
+                        app:layout_constraintVertical_bias="0.604" />
+
+                    <Spinner
+                        android:id="@+id/Sexe"
+                        android:layout_width="124dp"
+                        android:layout_height="58dp"
+                        android:layout_marginBottom="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        app:layout_constraintBottom_toTopOf="@+id/poblacio"
+                        app:layout_constraintEnd_toStartOf="@+id/DNI"
+                        app:layout_constraintStart_toEndOf="@+id/Edat" />
+
+                    <EditText
+                        android:id="@+id/Alergies"
+                        android:layout_width="220dp"
+                        android:layout_height="43dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Al·lèrgies*"
+                        android:inputType="textShortMessage"
+                        app:layout_constraintBottom_toTopOf="@+id/Farmacs"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/Farmacs"
+                        android:layout_width="215dp"
+                        android:layout_height="40dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Fàrmacs*"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toTopOf="@+id/Toxics"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.488"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/Toxics"
+                        android:layout_width="219dp"
+                        android:layout_height="42dp"
+                        android:layout_marginBottom="24dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Hàbits Tòxics*"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toTopOf="@+id/textView4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/poblacio"
+                        android:layout_width="218dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Poblacio"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toTopOf="@+id/Alergies"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.488"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:text="Antecedents rellevants"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toTopOf="@+id/Patologies"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.497"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/Patologies"
+                        android:layout_width="203dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Patologies d'interès*"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toTopOf="@+id/Antecedents"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.47"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/SexeT"
+                        android:layout_width="62dp"
+                        android:layout_height="27dp"
+                        android:layout_marginStart="24dp"
+                        android:text=" Sexe*"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/Sexe"
+                        app:layout_constraintStart_toEndOf="@+id/Edat" />
+
+                    <EditText
+                        android:id="@+id/Antecedents"
+                        android:layout_width="215dp"
+                        android:layout_height="51dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:ems="10"
+                        android:hint="Antecedents personals*"
+                        android:inputType="textPersonName"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.503"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="8dp"
+                        android:text="Nom"
+                        app:layout_constraintBottom_toTopOf="@+id/textView2"
+                        app:layout_constraintEnd_toStartOf="@+id/Nom"
+                        app:layout_constraintHorizontal_bias="0.555"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.597" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="60dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:text="Cognoms"
+                        app:layout_constraintBottom_toTopOf="@+id/Edat"
+                        app:layout_constraintEnd_toStartOf="@+id/Cognoms"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="Cognoms" />
+
+                    <TextView
+                        android:id="@+id/textView3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:text="Edat"
+                        app:layout_constraintBottom_toTopOf="@+id/Edat"
+                        app:layout_constraintEnd_toStartOf="@+id/textView5"
+                        app:layout_constraintHorizontal_bias="0.191"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="Edat" />
+
+                    <TextView
+                        android:id="@+id/textView5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:layout_marginEnd="80dp"
+                        android:text="DNI"
+                        app:layout_constraintBottom_toTopOf="@+id/DNI"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Cognoms"
+                        app:layout_constraintVertical_bias="1.0"
+                        tools:text="DNI" />
+
+                    <TextView
+                        android:id="@+id/textView6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="52dp"
+                        android:text="Poblacio"
+                        app:layout_constraintEnd_toStartOf="@+id/poblacio"
+                        app:layout_constraintHorizontal_bias="0.727"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/Edat"
+                        tools:text="Poblacio" />
+
+                </android.support.constraint.ConstraintLayout>
+
+            </ScrollView>
+        </FrameLayout>
+
     </LinearLayout>
 
 

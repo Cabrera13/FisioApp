@@ -1,8 +1,11 @@
 package com.example.pep.fisioapp.Activities;
 
 import android.content.Intent;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,9 +21,9 @@ import com.example.pep.fisioapp.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class FormPatients extends AppCompatActivity {
-
     EditText nom;
     EditText cognoms;
     EditText DNI;
@@ -38,6 +41,11 @@ public class FormPatients extends AppCompatActivity {
     ObjectForms forms;
     Button guardar;
 
+    String vinc = "";
+    String id = "";
+    String id2 = "";
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,13 +58,6 @@ public class FormPatients extends AppCompatActivity {
         sexe = findViewById(R.id.Sexe);
         poblacio = findViewById(R.id.poblacio);
 
-        alergies = findViewById(R.id.Alergies);
-        farmacs = findViewById(R.id.Farmacs);
-        toxics = findViewById(R.id.Toxics);
-        patologies = findViewById(R.id.Patologies);
-        antecedents = findViewById(R.id.Antecedents);
-
-        guardar = findViewById(R.id.Guardar);
 
         ArrayAdapter<String> adapter;
         List<String> list;
@@ -69,6 +70,36 @@ public class FormPatients extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sexe.setAdapter(adapter);
+
+        alergies = findViewById(R.id.Alergies);
+        farmacs = findViewById(R.id.Farmacs);
+        toxics = findViewById(R.id.Toxics);
+        patologies = findViewById(R.id.Patologies);
+        antecedents = findViewById(R.id.Antecedents);
+
+        guardar = findViewById(R.id.Guardar);
+
+        final Intent i = getIntent();
+        id = i.getStringExtra("dni");
+        Log.d("IDENTIFICADORFORMS", "onCreate: "+ id);
+
+        final SglClass instance = SglClass.getInstance();
+
+        if (id != null){
+            set(instance.getPatientsByID(id));
+            vinc = "save";
+        }
+
+        id2 = i.getStringExtra("dni2");
+        final int pos = i.getIntExtra("pos", -1);
+        if (id2 != null && pos != -1) {
+            setEdit(instance.getPatientsByID(id2), instance.getPatientsByID(id2).getForms().get(pos));
+            vinc = "edit";
+        }
+
+
+
+
 
         final SglClass instancia = SglClass.getInstance();
 
@@ -83,16 +114,31 @@ public class FormPatients extends AppCompatActivity {
                             antecedents.getText().toString());
                     patients = new ObjectPatients(DNI.getText().toString(), nom.getText().toString(), cognoms.getText().toString(), Integer.parseInt(edat.getText().toString()),
                             sexe.getSelectedItem().toString(), poblacio.getText().toString(), new ArrayList<ObjectForms>());
-                    patients.setFormsk(forms);
-                    instancia.setList(patients);
+                    if (Objects.equals(vinc, "")) {
+                        patients.setFormsk(forms);
+                        instancia.setList(patients);
+                        FirebaseCalls x = new FirebaseCalls();
+                        x.pushUser(patients, patients.getDni());
+                    }
+                    else if (Objects.equals(vinc, "save")){
+                        ArrayList<ObjectForms> k = instance.getPatientsByID(id).getForms();
+                        k.add(forms);
+                        patients.setForms(k);
+                        FirebaseCalls x = new FirebaseCalls();
+                        x.pushForm(instance.getPatientsByID(id).getForms(), patients.getDni());
+                    }
+                    else if (Objects.equals(vinc, "edit")){
+                        ArrayList<ObjectForms> k = instance.getPatientsByID(id2).getForms();
+                        k.set(pos, forms);
+                        patients.setForms(k);
+                        instance.getList().set(instance.getPositionPatientList(id2), patients);
+                        FirebaseCalls x = new FirebaseCalls();
+                        x.modifyForm(patients, id2);
 
-                   FirebaseCalls x = new FirebaseCalls();
-                   x.pushUser(patients, patients.getDni());
-
-
-
+                    }
 
                     Intent i = new Intent(FormPatients.this, Patients.class);
+                    finish();
                     startActivity(i);
                 }
                 else {
@@ -101,5 +147,47 @@ public class FormPatients extends AppCompatActivity {
                 }
             }
         });
+    }
+    public void set (ObjectPatients p) {
+        Log.d("setFormP", "set: "+ p.toString());
+
+        nom.setText(p.getNom());
+        nom.setEnabled(false);
+        cognoms.setText(p.getCognoms());
+        cognoms.setEnabled(false);
+        DNI.setText(p.getDni());
+        DNI.setEnabled(false);
+        edat.setText(p.getEdat().toString());
+        edat.setEnabled(false);
+
+        if (sexe.getSelectedItem().toString().equals("Home")) {
+            sexe.setSelection(0, true);
+        } else if (sexe.getSelectedItem().toString().equals("Dona")) {
+            sexe.setSelection(1, true);
+        }
+        sexe.setEnabled(false);
+
+        poblacio.setText(p.getPoblacio());
+        poblacio.setEnabled(false);
+    }
+    public void setEdit (ObjectPatients p, ObjectForms f){
+        Log.d("set", "setEdit: " + p.toString() + f.toString());
+        nom.setText(p.getNom());
+        cognoms.setText(p.getCognoms());
+        DNI.setText(p.getDni());
+        DNI.setEnabled(false);
+        edat.setText(p.getEdat().toString());
+        if (sexe.getSelectedItem().toString().equals("Home")) {
+            sexe.setSelection(0, true);
+        }
+        else if (sexe.getSelectedItem().toString().equals("Dona")) {
+            sexe.setSelection(1, true);
+        }
+        poblacio.setText(p.getEdat().toString());
+        farmacs.setText(f.getFarmacs());
+        alergies.setText(f.getAlergies());
+        toxics.setText(f.getHabits());
+        patologies.setText(f.getPatologies());
+        antecedents.setText(f.getAntecedents());
     }
 }

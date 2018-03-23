@@ -18,12 +18,14 @@ tools:context="com.example.pep.fisioapp.Activities.SplashScreen">
         android:background="@drawable/textinputrect"
         android:ems="10"
         android:hint="Email"
+        android:textColorHint="#a8a8a8"
+
         android:inputType="textEmailAddress"
         android:selectAllOnFocus="false"
         android:singleLine="false"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent" />
 
 
@@ -35,8 +37,10 @@ tools:context="com.example.pep.fisioapp.Activities.SplashScreen">
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/textinputrect"
+
         android:ems="10"
         android:hint="Password"
+        android:textColorHint="#a8a8a8"
         android:textColor="#1abc9c"
         android:inputType="textPassword"
         android:singleLine="false"
