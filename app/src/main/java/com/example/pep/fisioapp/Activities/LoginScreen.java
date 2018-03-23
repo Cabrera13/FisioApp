@@ -1,8 +1,10 @@
 package com.example.pep.fisioapp.Activities;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -17,6 +19,8 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.Objects;
 
 import static android.content.ContentValues.TAG;
 import static android.widget.Toast.LENGTH_SHORT;
@@ -43,12 +47,18 @@ public class LoginScreen extends AppCompatActivity {
 
 
         buttonLogin.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View view) {
                 username = mEditTextEmail.getText().toString();
                 password = mEditTextPassWord.getText().toString();
-                if (!username.equals(null)  && password != null) {
+                if (!Objects.equals(username, "") && !Objects.equals(password, "")) {
                     signIn(username, password);
+                }
+
+                else {
+                    Toast.makeText(LoginScreen.this, "Falten camps per omplir!",
+                            LENGTH_SHORT).show();
                 }
 
             }

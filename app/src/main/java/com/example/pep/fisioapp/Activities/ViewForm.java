@@ -54,6 +54,7 @@ public class ViewForm extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     private RecyclerView.Adapter mAdapter;
 
+    ImageView bkbutf;
 
     String identificadordni;
 
@@ -100,7 +101,13 @@ public class ViewForm extends AppCompatActivity {
             Log.d("id", identificadordni);
         }
 
-
+        bkbutf = findViewById(R.id.backbuttonf);
+        bkbutf.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         final SglClass instance = SglClass.getInstance();
         final ArrayList<ObjectForms> arrayInstances = instance.getListForms(identificadordni);

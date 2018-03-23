@@ -20,14 +20,14 @@
 
     <TextView
         android:id="@+id/textTitle"
-        android:layout_width="141dp"
+        android:layout_width="250dp"
         android:layout_height="102dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif"
-        android:text="Hello, \nDoctor "
+        android:text="   Hello, Doctor "
         android:textColor="#ffffff"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"

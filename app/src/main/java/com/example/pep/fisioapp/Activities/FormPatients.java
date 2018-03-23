@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -45,6 +46,8 @@ public class FormPatients extends AppCompatActivity {
     String id = "";
     String id2 = "";
 
+    ImageView backbuttonj;
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +61,14 @@ public class FormPatients extends AppCompatActivity {
         sexe = findViewById(R.id.Sexe);
         poblacio = findViewById(R.id.poblacio);
 
+        backbuttonj = findViewById(R.id.backbuttonj);
+
+        backbuttonj.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         ArrayAdapter<String> adapter;
         List<String> list;
